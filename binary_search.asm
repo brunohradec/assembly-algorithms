@@ -76,7 +76,7 @@ binary_search:
 		;is different from unequal_end because if searched element is found
 		;new arguments (indexes of sub-array) are not pushed on the stack
 
-		sub esp, 20h			;stack pointer na dio stack-a iznad svega
+		sub esp, 20h				;stack pointer na dio stack-a iznad svega
 		pop edx					;getting the context back
 		pop ecx
 		pop ebx

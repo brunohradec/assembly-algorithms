@@ -51,6 +51,7 @@ inc cl						;inner_loop_counter++
 jmp inner_loop
 
 continue_outer:
+
 inc ch						;outer_loop_counter++
 jmp outer_loop
 

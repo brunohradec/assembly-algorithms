@@ -23,15 +23,15 @@ push ebx			;EBX - index of the last element of the sub-array
 push ecx			;ECX - middle index of the sub-array
 push edx			;EDX - array element to search for
 
-add  esp, 14h			;ESP to given arguments
+add  esp, 14h		;ESP to given arguments
 
 pop  ebx			;getting the last index of sub-array
 pop  eax			;getting the first index of sub-array
 pop  edx			;getting the array element to search for
 
-mov  ecx, eax			;counting the middle index of sub-array
+mov  ecx, eax		;counting the middle index of sub-array
 add  ecx, ebx
-shr  ecx, 1h			;(firs_isndex + last_index) / 2
+shr  ecx, 1h		;(firs_isndex + last_index) / 2
 
 ;does the search element equal to the middle element?
 cmp  edx, dword ptr [array + ecx * 4]
@@ -48,7 +48,7 @@ jmp the_equal_end
 
 less_than:
 
-sub esp, 20h			;stack pointer above everything put on the stack
+sub esp, 20h		;stack pointer above everything put on the stack
 push edx			;indexes of the new sub-array
 push eax
 push ecx
@@ -59,7 +59,7 @@ jmp the_unequal_end
 
 more_than:
 
-sub  esp, 20h			;stack pointer na novi dio stack-a iznad svega
+sub  esp, 20h		;stack pointer na novi dio stack-a iznad svega
 push edx			;indexes of the new sub-array
 add  ecx, 1h		
 push ecx
@@ -76,7 +76,7 @@ jmp the_unequal_end
 
 the_equal_end:
 
-sub esp, 20h			;stack pointer na dio stack-a iznad svega
+sub esp, 20h		;stack pointer na dio stack-a iznad svega
 pop edx				;getting the context back
 pop ecx
 pop ebx
@@ -89,7 +89,7 @@ jmp the_end
 
 the_unequal_end:
 
-add esp, 0Ch			;removing 3 arguments pushed on the stack
+add esp, 0Ch		;removing 3 arguments pushed on the stack
 pop edx				;getting the context back
 pop ecx
 pop ebx
@@ -104,7 +104,7 @@ push dword ptr 20		;element to be searched for pushed on the stack
 
 push dword ptr 0h		;pushing first index of array on the stack
 
-mov eax, dword ptr [N]		;pushing last index of array on the stack
+mov eax, dword ptr [N]	;pushing last index of array on the stack
 sub eax, 1h
 push eax
 
